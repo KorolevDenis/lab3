@@ -20,8 +20,9 @@ public class Queue {
 
   public void put() {
     Student student = new Student();
-    locker.lock();
+    
     try {
+      locker.lock();
       while (students.size() == 10) {
         conditionGen.await();
       }
