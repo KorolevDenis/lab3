@@ -26,7 +26,7 @@ public class Queue {
       while (students.size() == 10) {
         conditionGen.await();
       }
-      sleep(150);
+      sleep(1500);
       conditionRobo.signalAll();
       students.add(student);
       System.out.println("Student generation " + student.getLabsCount() + " " + student.getDiscipline());
@@ -45,7 +45,6 @@ public class Queue {
         System.out.println("Robot wait" + " " + Thread.currentThread().getName());
         conditionRobo.await();
       }
-      sleep(20);
       conditionGen.signalAll();
       student = students.remove();
 
@@ -65,7 +64,7 @@ public class Queue {
       System.out.println("Robot completion " + labsCount + " " + disciplines + " " + Thread.currentThread().getName());
       labsCount -= 5;
       try {
-        sleep(40);
+        sleep(200);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
